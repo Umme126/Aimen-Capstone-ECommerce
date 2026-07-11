@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Vibe — Premium Lifestyle Essentials</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Navbar Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold tracking-wide text-uppercase" href="index.html">Aura Vibe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm position-relative ms-2 px-3" href="cart.html">
+              Cart 🛒
+              <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Frame -->
+  <header class="bg-dark text-white text-center py-5 mb-5" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=80') center/cover no-repeat;">
+    <div class="container py-5">
+      <h1 class="display-4 fw-bold mb-3">Refined Aesthetics. Daily Utility.</h1>
+      <p class="lead text-white-50 max-w-2xl mx-auto mb-4">Discover a curated collective of minimal, high-tier hardware accessories and lifestyle objects engineered for performance.</p>
+      <a href="shop.html" class="btn btn-primary btn-lg px-4 rounded-1 text-uppercase fw-semibold btn-sm fs-6">Explore Collection</a>
+    </div>
+  </header>
+
+  <!-- Categories Sections -->
+  <main class="container mb-5 flex-grow-1">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-dark text-uppercase mb-2">Shop By Category</h2>
+      <p class="text-muted small">Carefully grouped solutions tailored to your operational flow</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-white bg-dark border-0 overflow-hidden shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=500&q=80" class="card-img opacity-50 object-fit-cover" style="height: 280px;" alt="Electronics">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+            <h4 class="card-title fw-bold text-uppercase mb-1">Electronics</h4>
+            <a href="shop.html?cat=electronics" class="stretched-link text-white text-decoration-none small opacity-75">View Essentials &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-dark border-0 overflow-hidden shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=500&q=80" class="card-img opacity-50 object-fit-cover" style="height: 280px;" alt="Bags">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+            <h4 class="card-title fw-bold text-uppercase mb-1">Bags & Packs</h4>
+            <a href="shop.html?cat=bags" class="stretched-link text-white text-decoration-none small opacity-75">View Essentials &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-dark border-0 overflow-hidden shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&q=80" class="card-img opacity-50 object-fit-cover" style="height: 280px;" alt="Lifestyle">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+            <h4 class="card-title fw-bold text-uppercase mb-1">Lifestyle Objects</h4>
+            <a href="shop.html?cat=lifestyle" class="stretched-link text-white text-decoration-none small opacity-75">View Essentials &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Professional Footer -->
+  <!-- Centered Professional Footer (Reference Match) -->
+  <footer class="bg-dark text-white pt-5 mt-auto">
+    <!-- Bootstrap Icons CDN (Required for social icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <div class="container text-center">
+      <!-- 1. Social Media Icons Row -->
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-google"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+      </div>
+
+      <!-- 2. Centered Page Navigation Links Row -->
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <a href="index.html" class="text-white-50 text-decoration-none small hover-white">Home</a>
+        <a href="shop.html" class="text-white-50 text-decoration-none small hover-white">Shop</a>
+        <a href="cart.html" class="text-white-50 text-decoration-none small hover-white">Basket</a>
+        <a href="checkout.html" class="text-white-50 text-decoration-none small hover-white">Checkout</a>
+      </div>
+    </div>
+
+    <!-- 3. Dark Bottom Copyright Bar -->
+    <div class="py-3" style="background-color: #0c0d0e;">
+      <div class="container text-center">
+        <p class="mb-0 text-white-50 small opacity-75">
+          Copyright &copy; 2026; Designed by <span class="text-white fw-bold tracking-wider text-uppercase">Aura Vibe</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart-helper.js"></script>
+</body>
+</html>

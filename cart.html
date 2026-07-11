@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Basket — Aura Vibe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Navbar Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold tracking-wide text-uppercase" href="index.html">Aura Vibe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm position-relative ms-2 px-3 active" href="cart.html">
+              Cart 🛒
+              <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Calculations Layout -->
+  <main class="container my-5 flex-grow-1">
+    <h2 class="fw-bold mb-4">Shopping Cart</h2>
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card p-3 shadow-sm border-0" id="cart-content-wrapper">
+          <!-- Controlled by inline script script below -->
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="card p-4 shadow-sm border-0 bg-white">
+          <h5 class="fw-bold mb-3">Order Abstract</h5>
+          <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
+            <span class="text-muted">Subtotal</span>
+            <span id="summary-subtotal" class="fw-semibold">$0.00</span>
+          </div>
+          <div class="d-flex justify-content-between mb-4">
+            <span class="text-muted fw-bold">Total Gross</span>
+            <span id="summary-total" class="fw-bold text-primary fs-5">$0.00</span>
+          </div>
+          <a id="checkout-cta" href="checkout.html" class="btn btn-dark w-100 disabled">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Professional Footer -->
+<!-- Centered Professional Footer (Reference Match) -->
+  <footer class="bg-dark text-white pt-5 mt-auto">
+    <!-- Bootstrap Icons CDN (Required for social icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <div class="container text-center">
+      <!-- 1. Social Media Icons Row -->
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-google"></i></a>
+        <a href="#" class="text-dark bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-size: 1.35rem; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+      </div>
+
+      <!-- 2. Centered Page Navigation Links Row -->
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <a href="index.html" class="text-white-50 text-decoration-none small hover-white">Home</a>
+        <a href="shop.html" class="text-white-50 text-decoration-none small hover-white">Shop</a>
+        <a href="cart.html" class="text-white-50 text-decoration-none small hover-white">Basket</a>
+        <a href="checkout.html" class="text-white-50 text-decoration-none small hover-white">Checkout</a>
+      </div>
+    </div>
+
+    <!-- 3. Dark Bottom Copyright Bar -->
+    <div class="py-3" style="background-color: #0c0d0e;">
+      <div class="container text-center">
+        <p class="mb-0 text-white-50 small opacity-75">
+          Copyright &copy; 2026; Designed by <span class="text-white fw-bold tracking-wider text-uppercase">Aura Vibe</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart-helper.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', renderCartPage);
+
+    function renderCartPage() {
+      const container = document.getElementById('cart-content-wrapper');
+      const checkoutCta = document.getElementById('checkout-cta');
+      const cart = getCart();
+
+      if(cart.length === 0) {
+        container.innerHTML = `<div class="text-center py-5 text-muted">Your cart is currently empty.</div>`;
+        document.getElementById('summary-subtotal').textContent = "$0.00";
+        document.getElementById('summary-total').textContent = "$0.00";
+        checkoutCta.classList.add('disabled');
+        return;
+      }
+
+      checkoutCta.classList.remove('disabled');
+      let grandTotal = 0;
+
+      let tableHtml = `
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr class="text-muted small">
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      cart.forEach(item => {
+        const prod = products.find(p => p.id === item.id);
+        if(prod) {
+          const lineTotal = prod.price * item.quantity;
+          grandTotal += lineTotal;
+          tableHtml += `
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="${prod.image}" class="rounded object-fit-cover me-3" style="width:50px; height:50px;" alt="">
+                  <span class="fw-semibold small text-dark">${prod.name}</span>
+                </div>
+              </td>
+              <td class="small">$${prod.price.toFixed(2)}</td>
+              <td>
+                <input type="number" class="form-control form-control-sm w-75" value="${item.quantity}" min="1" onchange="alterQuantity(${item.id}, this.value)">
+              </td>
+              <td class="small fw-semibold">$${lineTotal.toFixed(2)}</td>
+              <td>
+                <button class="btn btn-sm btn-link text-danger text-decoration-none" onclick="dropItem(${item.id})">&times; Remove</button>
+              </td>
+            </tr>
+          `;
+        }
+      });
+
+      tableHtml += `</tbody></table></div>`;
+      container.innerHTML = tableHtml;
+      
+      document.getElementById('summary-subtotal').textContent = `$${grandTotal.toFixed(2)}`;
+      document.getElementById('summary-total').textContent = `$${grandTotal.toFixed(2)}`;
+    }
+
+    window.alterQuantity = function(id, val) {
+      let cart = getCart();
+      const target = cart.find(i => i.id === id);
+      if(target) {
+        target.quantity = Math.max(1, parseInt(val));
+        saveCart(cart);
+        renderCartPage();
+      }
+    }
+
+    window.dropItem = function(id) {
+      let cart = getCart();
+      cart = cart.filter(i => i.id !== id);
+      saveCart(cart);
+      renderCartPage();
+    }
+  </script>
+</body>
+</html>
